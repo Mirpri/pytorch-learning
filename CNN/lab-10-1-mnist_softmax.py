@@ -65,8 +65,8 @@ print('Learning finished')
 
 # Test the model using test sets
 with torch.no_grad():
-    X_test = mnist_test.test_data.view(-1, 28 * 28).float().to(device)
-    Y_test = mnist_test.test_labels.to(device)
+    X_test = mnist_test.data.view(-1, 28 * 28).float().to(device)
+    Y_test = mnist_test.targets.to(device)
 
     prediction = linear(X_test)
     correct_prediction = torch.argmax(prediction, 1) == Y_test
@@ -75,8 +75,8 @@ with torch.no_grad():
 
     # Get one and predict
     r = random.randint(0, len(mnist_test) - 1)
-    X_single_data = mnist_test.test_data[r:r + 1].view(-1, 28 * 28).float().to(device)
-    Y_single_data = mnist_test.test_labels[r:r + 1].to(device)
+    X_single_data = mnist_test.data[r:r + 1].view(-1, 28 * 28).float().to(device)
+    Y_single_data = mnist_test.targets[r:r + 1].to(device)
 
     print('Label: ', Y_single_data.item())
     single_prediction = linear(X_single_data)

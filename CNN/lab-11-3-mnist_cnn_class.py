@@ -133,7 +133,7 @@ print('Learning Finished!')
 
 # Test model and check accuracy
 with torch.no_grad():
-    X_test = mnist_test.test_data.view(len(mnist_test), 1, 28, 28).float().to(device)
-    Y_test = mnist_test.test_labels.to(device)
+    X_test = mnist_test.data.view(len(mnist_test), 1, 28, 28).float().to(device)
+    Y_test = mnist_test.targets.to(device)
 
     print('Accuracy:', model.get_accuracy(X_test, Y_test))

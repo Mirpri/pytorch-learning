@@ -51,8 +51,8 @@ def sigma_prime(x):
     # derivative of the sigmoid function
     return sigma(x) * (1 - sigma(x))
 
-X_test = mnist_test.test_data.view(-1, 28 * 28).float().to(device)[:1000]
-Y_test = mnist_test.test_labels.to(device)[:1000]
+X_test = mnist_test.data.view(-1, 28 * 28).float().to(device)[:1000]
+Y_test = mnist_test.targets.to(device)[:1000]
 i = 0
 while not i == 10000:
     for X, Y in data_loader:
